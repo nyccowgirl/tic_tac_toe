@@ -194,7 +194,7 @@ def play_again():
 def execute_repl():
     greeting()
     while True:
-        board = [""] * 10
+        board = [" "] * 10
         instructions()
         player, computer = player_letter()
         turn = who_first()
@@ -203,16 +203,16 @@ def execute_repl():
         while True:
             if turn == "player":
                 # Player's turn
+                draw_board(board)
                 move = player_move(board)
                 make_move(board, player, move)
-                draw_board(board)
 
                 if check_win(board, player, computer) == "player":
-                    #draw_board(board)
+                    draw_board(board)
                     print "Congratulations! You are the winner!"
                     break
                 elif full_board(board):
-                    #draw_board(board)
+                    draw_board(board)
                     print "The game is a tie!"
                     break
                 else:
@@ -222,14 +222,13 @@ def execute_repl():
                 # Computer's turn
                 move = computer_move(board, player, computer)
                 make_move(board, computer, move)
-                draw_board(board)
 
                 if check_win(board, player, computer) == "computer":
-                    #draw_board(board)
+                    draw_board(board)
                     print "The computer has won! Better luck next time!"
                     break
                 elif full_board(board):
-                    #draw_board(board)
+                    draw_board(board)
                     print "The game is a tie!"
                     break
                 else:
