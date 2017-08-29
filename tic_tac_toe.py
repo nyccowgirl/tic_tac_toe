@@ -4,7 +4,7 @@ import random
 # define function for greeting
 
 def greeting():
-    print "Welcome to the game of Tic Tac Toe!"
+    print "Let's play Tic Tac Toe!"
 
 
 # define function with instructions for position number for squares on board
@@ -79,8 +79,10 @@ def player_move(board):
     move = " "
     while move not in "1 2 3 4 5 6 7 8 9".split() or not free_space(board, int(move)):
         move = raw_input("\nWhere would you like to go? (1-9) ")
-        if not move.isdigit():
+        if not move.isdigit() or (move < 1 or move > 9):
             print "Please input a position between 1 to 9."
+        else:
+            print "That space is taken; try again."
     return int(move)
 
 
@@ -201,7 +203,7 @@ def execute_repl():
         print "The " + turn + " will go first."
 
         while True:
-            if turn == "player":
+            if turn = "player":
                 # Player's turn
                 draw_board(board)
                 move = player_move(board)
