@@ -160,12 +160,15 @@ def computer_move(board, player, computer):
 def check_win(board, player, computer):
     """Checks if there is a winner before advancing."""
 
-    combinations = ([1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7])
+    combinations = ([1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8],
+                    [3, 6, 9], [1, 5, 9], [3, 5, 7])
 
     for com in combinations:
-        if (board[com[0]] == player) and (board[com[1]] == player) and (board[com[2]] == player):
+        if ((board[com[0]] == player) and (board[com[1]] == player) and
+           (board[com[2]] == player)):
             return "player"
-        elif (board[com[0]] == computer) and (board[com[1]] == computer) and (board[com[2]] == computer):
+        elif ((board[com[0]] == computer) and (board[com[1]] == computer) and
+             (board[com[2]] == computer)):
             return "computer"
 
     return False
